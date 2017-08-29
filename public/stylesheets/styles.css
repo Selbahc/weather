@@ -1,9 +1,3 @@
-body {
-  background-color: #c3fdff;
-  font-family: Arial, sans-serif;
-  color: #bf5f82;
-}
-
 .flex {
   height: 100vh;
   display: -webkit-box;
@@ -23,29 +17,46 @@ body {
   box-sizing: border-box;
 }
 
-form input, form button {
-  padding: 1.2em;
-  margin: 1em;
+body {
+  background-color: #c3fdff;
+  font-family: Arial, sans-serif;
+  color: #bf5f82;
 }
 
 label {
+  font-size: 3em;
   margin: 1em;
 }
 
+form input, form button {
+  padding: 1.2em;
+  font-size: 1.5em;
+  margin: 1em;
+  border: none;
+  border-radius: 1em;
+}
+
 form input {
-  color: #bf5f82;
+  color: inherit;
   width: 30%;
 }
 
 form button {
   width: 15%;
   color: #bf5f82;
+  background-color: #FFF;
 }
 
 p {
-  font-size: 1.5em;
+  font-size: 3em;
 }
 
 span {
   font-weight: 700;
+}
+
+img {
+  margin: 1em 0;
+  width: 7em;
+  height: auto;
 }

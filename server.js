@@ -6,7 +6,7 @@ const bodyparser = require('body-parser');
 
 const app = express();
 
-app.set('view engine', 'ejs');
+app.set('view engine', 'pug');
 app.set('views', path.resolve(__dirname, 'views'));
 
 
@@ -14,7 +14,7 @@ app.set('views', path.resolve(__dirname, 'views'));
 ///////////////
 app.use(logger('dev'));
 app.use(express.static(path.resolve(__dirname, 'public')));
-app.use(bodyparser.urlencoded({ //to ready the req body of post method
+app.use(bodyparser.urlencoded({ //to read the req body of post method
   extended: true
 }));
 
@@ -35,10 +35,12 @@ app.post('/result', (req, result) => {
     request(`https://api.forecast.io/forecast/4a04d1c42fd9d32c97a2c291a32d5e2d/${latitude},${longitude}`, (err, res, body) => {
       const tempF = JSON.parse(body).currently.temperature;
       const tempC = Math.round((tempF - 32) / 1.8);
+      const icon = JSON.parse(body).currently.icon;
 
       result.render('weather', {
         temperature: `${tempC}`,
-        city: `${cityName}`
+        city: `${cityName}`,
+        icon: `${icon}`
       });
 
     });
